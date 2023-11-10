@@ -4,67 +4,25 @@ const router = express.Router();
 const Model = require("../models/model");
 const model = require("../models/model");
 
-//Post
-router.post("/post", async (req, res) => {
-  const data = new Model({
-    name: req.body.name,
-    age: req.body.age,
-  });
+const { postContoller } = require("../controllers/postController");
+const { getAllController } = require("../controllers/getAllController");
+const { getOneController } = require("../controllers/getOneController");
+const { updateByIdController } = require("../controllers/updateByIdController");
+const { deleteByIdCOntroller } = require("../controllers/deleteByIdController");
 
-  try {
-    const dataToSave = await data.save();
-    res.status(200).json(dataToSave);
-  } catch {
-    res.status(400).json({ message: error.message });
-  }
-});
+//Post
+router.post("/post", postContoller);
 
 //Get
-router.get("/getAll", async (req, res) => {
-  try {
-    const data = await Model.find();
-    res.json(data);
-  } catch {
-    res.status(500).json({ message: error.message });
-  }
-});
+router.get("/getAll", getAllController);
 
 //Get by ID
-router.get("/getOne/:id", async (req, res) => {
-  try {
-    const data = await Model.findById(req.params.id);
-    res.json(data);
-  } catch {
-    res.status(500).json({ message: error.message });
-  }
-});
+router.get("/getOne/:id", getOneController);
 
 //Update by ID Method
-router.patch("/update/:id", async (req, res) => {
-  try {
-    const id = req.params.id;
-    const updatedData = req.body;
-    const options = { new: true };
-
-    const result = await Model.findByIdAndUpdate(id, updatedData, options);
-
-    res.send(result);
-  } catch {
-    res.status(400).json({ message: error.message });
-  }
-});
+router.patch("/update/:id", updateByIdController);
 
 //Delete by ID Method
-router.delete("/delete/:id", async (req, res) => {
-  try {
-    const id = req.params.id;
-
-    const data = await Model.findByIdAndDelete(id);
-
-    res.send(`Document with ${data.name} has been deleted !!`);
-  } catch {
-    res.status(400).json({ message: error.message });
-  }
-});
+router.delete("/delete/:id", deleteByIdCOntroller);
 
 module.exports = router;
