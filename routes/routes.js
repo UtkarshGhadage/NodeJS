@@ -4,14 +4,14 @@ const router = express.Router();
 const Model = require("../models/model");
 const model = require("../models/model");
 
-const { postContoller } = require("../controllers/postController");
+const { postController } = require("../controllers/postController");
 const { getAllController } = require("../controllers/getAllController");
 const { getOneController } = require("../controllers/getOneController");
 const { updateByIdController } = require("../controllers/updateByIdController");
 const { deleteByIdCOntroller } = require("../controllers/deleteByIdController");
 
 //Post
-router.post("/post", postContoller);
+router.post("/post", postController);
 
 //Get
 router.get("/getAll", getAllController);

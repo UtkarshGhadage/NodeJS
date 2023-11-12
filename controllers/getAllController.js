@@ -1,5 +1,4 @@
 const Model = require("../models/model");
-const model = require("../models/model");
 
 async function getAllController(req, res){
     try {
