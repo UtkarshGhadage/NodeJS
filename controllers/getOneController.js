@@ -5,7 +5,7 @@ async function getOneController(req, res) {
     const data = await Model.findById(req.params.id);
     res.json(data);
   } catch {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ message: "Something Went Wrong" });
   }
 }
 

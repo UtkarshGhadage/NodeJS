@@ -10,8 +10,8 @@ describe('postController', () => {
     // Mocking req and res
     const req = {
       body: {
-        name: 'John Doe',
-        age: 25,
+        name: 'Utkarsh Ghadage',
+        age: 24,
       },
     };
 
@@ -22,8 +22,8 @@ describe('postController', () => {
 
     // Mocking the save method of the Model
     Model.prototype.save.mockResolvedValue({
-      name: 'John Doe',
-      age: 25,
+      name: 'Utkarsh Ghadage',
+      age: 24,
       _id: 'someUniqueId',
     });
 
@@ -32,8 +32,8 @@ describe('postController', () => {
     // Assert that the status is set to 200 and the json method is called with the expected data
     expect(res.status).toHaveBeenCalledWith(200);
     expect(res.json).toHaveBeenCalledWith({
-      name: 'John Doe',
-      age: 25,
+      name: 'Utkarsh Ghadage',
+      age: 24,
       _id: 'someUniqueId',
     });
   });
@@ -44,8 +44,8 @@ describe('postController', () => {
     // Mocking req and res
     const req = {
       body: {
-        name: 'John Doe',
-        age: 25,
+        name: 'Utkarsh Ghadage',
+        age: 24,
       },
     };
 

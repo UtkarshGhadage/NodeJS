@@ -5,7 +5,7 @@ async function getAllController(req, res){
       const data = await Model.find();
       res.json(data);
     } catch {
-      res.status(500).json({ message: error.message });
+      res.status(500).json({ message: "Something Went Wrong" });
     }
 }
 
